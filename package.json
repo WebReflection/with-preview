@@ -1,6 +1,6 @@
 {
   "name": "with-preview",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "An <img> built-in extend that loads its non-preview counterpart once visible",
   "main": "./cjs/index.js",
   "scripts": {
@@ -11,7 +11,11 @@
     "min": "uglifyjs index.js --support-ie8 --comments=/^!/ -c -m -o min.js",
     "fix:default": "sed -i 's/({})/({}).default/' index.js && sed -i 's/({})/({}).default/' es.js && sed -i 's/({})/({}).default/' min.js"
   },
-  "keywords": ["img", "lazy", "preview"],
+  "keywords": [
+    "img",
+    "lazy",
+    "preview"
+  ],
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
