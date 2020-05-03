@@ -6,19 +6,13 @@
   <script>
     if(this.customElements)
       try{customElements.define('built-in',document.createElement('p').constructor,{'extends':'p'})}
-      catch(s){document.write('<script src="//unpkg.com/@ungap/custom-elements-builtin"><\x2fscript>')}
+      catch(s){document.write('<script src="//unpkg.com/@ungap/custom-elements-builtin@0.5.0/min.js"><\x2fscript>')}
     else
-      document.write('<script src="//unpkg.com/document-register-element"><\x2fscript>');
+      document.write('<script src="//unpkg.com/document-register-element@1.14.3/build/document-register-element.js"><\x2fscript>');
     </script>
-  <script src="../index.js"></script>
+  <script src="../min.js"></script>
   <style>
-  * {
-    box-sizing: border-box;
-  }
-  img {
-    margin: 32px auto;
-    border: 8px solid silver;
-  }
+  img { margin: 32px auto; border: 8px solid #fefefe; }
   </style>
 </head>
 <body>
