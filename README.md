@@ -2,6 +2,8 @@
 
 [Live demo](https://webreflection.github.io/with-preview/test/)
 
+<sup>**Photo by [Pierre Bouillot](https://unsplash.com/@pbouillot) on [Unsplash](https://unsplash.com/)**</sup>
+
 ```html
 <script async src="https://unpkg.com/with-preview/es.js"></script>
 <img is="with-preview" src="any-image.preview.jpg">
