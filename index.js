@@ -230,7 +230,6 @@
           var _entries$i = entries[i],
               isIntersecting = _entries$i.isIntersecting,
               target = _entries$i.target;
-          console.log(isIntersecting);
 
           if (isIntersecting) {
             observer.unobserve(target);

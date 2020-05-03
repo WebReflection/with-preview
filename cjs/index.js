@@ -36,7 +36,6 @@ if (!customElements.get(className)) {
       entries => {
         for (let i = 0, {length} = entries; i < length; i++) {
           const {isIntersecting, target} = entries[i];
-          console.log(isIntersecting);
           if (isIntersecting) {
             observer.unobserve(target);
             target.addEventListener('load', onload, once);
