@@ -26,12 +26,8 @@ footer {
   bottom: 0;
   height: var(--height);
   width: 100vw;
-  background-image: url(background.preview.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  border-top: var(--border) solid black;
   color: #fff;
+  border-top: var(--border) solid black;
 }
 
 footer > button {
@@ -54,12 +50,22 @@ footer > .menu {
   height: 0;
   padding: 0;
   width: 40vw;
+  border-top: var(--border) solid black;
+  transition: height .5s ease-out;
+}
+
+footer::before, footer > .menu::before {
+  z-index: -1;
+  position: absolute;
+  display: block;
+  opacity: 0.96;
+  content: "";
+  width: 100%;
+  height: 100%;
   background-image: url(background.preview.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  border-top: var(--border) solid black;
-  transition: height .5s ease-out;
 }
 
 footer > .menu > * {
