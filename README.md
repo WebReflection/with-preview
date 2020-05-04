@@ -1,8 +1,17 @@
 # with-preview
 
-[Live demo](https://webreflection.github.io/with-preview/test/)
+![frozen beach](./test/with-preview.jpg)
 
 <sup>**Photo by [Pierre Bouillot](https://unsplash.com/@pbouillot) on [Unsplash](https://unsplash.com/)**</sup>
+
+A built-in Custom Element based on _IntersectionObserver_ able to fade in good quality jpg over their preview version.
+
+It fallbacks all the way down to IE 9, simply replacing on the fly the preview source with its good quality counter-part.
+
+**[Live demo](https://webreflection.github.io/with-preview/test/)**
+
+
+### Example
 
 ```html
 <script async src="https://unpkg.com/with-preview/es.js"></script>
