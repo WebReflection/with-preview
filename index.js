@@ -178,25 +178,20 @@
 
   var _window = window,
       customElements = _window.customElements,
+      getComputedStyle = _window.getComputedStyle,
       IntersectionObserver = _window.IntersectionObserver;
   var className = 'with-preview';
 
   if (!customElements.get(className)) {
-    var onConnected = function onConnected(target) {
-      updateSrc(target);
-    };
-
     var updateSrc = function updateSrc(target) {
       target.src = target.src.replace(/\.preview(\.jpe?g(?:\?.*)?)$/, '$1');
     };
 
+    var onConnected = updateSrc;
+
     if (IntersectionObserver) {
       var once = {
         once: true
-      };
-
-      var gCS = function gCS(target) {
-        return getComputedStyle(target, null);
       };
 
       var onload = function onload(_ref) {
@@ -210,9 +205,9 @@
         var parentElement = target.parentElement;
 
         if (parentElement.tagName.toLowerCase() === className) {
-          var _gCS = gCS(target),
-              width = _gCS.width,
-              height = _gCS.height;
+          var _getComputedStyle = getComputedStyle(target),
+              width = _getComputedStyle.width,
+              height = _getComputedStyle.height;
 
           parentElement.style.cssText += ';width:' + width + ';height:' + height;
           observer.observe(target.nextSibling);
@@ -244,15 +239,15 @@
       onConnected = function onConnected(target) {
         if (!target.dataset.preview) {
           target.dataset.preview = 1;
+
+          var _getComputedStyle2 = getComputedStyle(target),
+              marginTop = _getComputedStyle2.marginTop,
+              marginRight = _getComputedStyle2.marginRight,
+              marginBottom = _getComputedStyle2.marginBottom,
+              marginLeft = _getComputedStyle2.marginLeft;
+
           var height = target.height,
               parentElement = target.parentElement;
-
-          var _gCS2 = gCS(target),
-              marginTop = _gCS2.marginTop,
-              marginRight = _gCS2.marginRight,
-              marginBottom = _gCS2.marginBottom,
-              marginLeft = _gCS2.marginLeft;
-
           var container = document.createElement(className);
           var clone = target.cloneNode(true);
           container.style.cssText = ';margin-top:' + marginTop + ';margin-right:' + marginRight + ';margin-bottom:' + marginBottom + ';margin-left:' + marginLeft;

@@ -2,17 +2,16 @@
 /*! (c) Andrea Giammarchi @webreflection */
 const css = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('ustyler'));
 
-const {customElements, IntersectionObserver} = window;
+const {customElements, getComputedStyle, IntersectionObserver} = window;
 const className = 'with-preview';
 
 if (!customElements.get(className)) {
-  let onConnected = target => { updateSrc(target); };
   const updateSrc = target => {
     target.src = target.src.replace(/\.preview(\.jpe?g(?:\?.*)?)$/, '$1');
   };
+  let onConnected = updateSrc;
   if (IntersectionObserver) {
     const once = {once: true};
-    const gCS = target => getComputedStyle(target, null);
     const onload = ({target}) => {
       target.addEventListener('transitionend', onTransitionEnd, once);
       target.style.opacity = 1;
@@ -20,7 +19,7 @@ if (!customElements.get(className)) {
     const onHeight = ({target}) => {
       const {parentElement} = target;
       if (parentElement.tagName.toLowerCase() === className) {
-        const {width, height} = gCS(target);
+        const {width, height} = getComputedStyle(target);
         parentElement.style.cssText +=
           ';width:' + width +
           ';height:' + height
@@ -50,8 +49,13 @@ if (!customElements.get(className)) {
     onConnected = target => {
       if (!target.dataset.preview) {
         target.dataset.preview = 1;
+        const {
+          marginTop,
+          marginRight,
+          marginBottom,
+          marginLeft
+        } = getComputedStyle(target);
         const {height, parentElement} = target;
-        const {marginTop, marginRight, marginBottom, marginLeft} = gCS(target);
         const container = document.createElement(className);
         const clone = target.cloneNode(true);
         container.style.cssText =
