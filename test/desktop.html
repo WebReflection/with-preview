@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="desktop.css">
+  <title>Desktop Example</title>
+</head>
+<body>
+  <header></header>
+  <main></main>
+  <footer>
+    <div class="menu">
+      <h3>What do you need to do?</h3>
+    </div>
+    <button>🌈 Start</button>
+  </footer>
+  <script>
+    (function (start) {
+      const menu = start.parentElement.querySelector('.menu');
+      start.addEventListener('click', showMenu);
+      function showMenu() {
+        menu.classList.toggle('visible');
+      }
+    }(document.querySelector('footer > button')));
+  </script>
+</body>
+</html>

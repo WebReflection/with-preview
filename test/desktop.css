@@ -1,0 +1,80 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: sans-serif;
+  background-image: url(background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+footer {
+  --height: 48px;
+  --border: 2px;
+  --space: 8px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: var(--height);
+  width: 100vw;
+  background-image: url(background.preview.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-top: var(--border) solid black;
+  color: #fff;
+}
+
+footer > button {
+  color: inherit;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  padding: var(--space);
+  margin: auto var(--space);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+footer > .menu {
+  overflow: hidden;
+  z-index: 0;
+  position: fixed;
+  bottom: calc(var(--height) - var(--border));
+  left: 0;
+  height: 0;
+  padding: 0;
+  width: 40vw;
+  background-image: url(background.preview.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-top: var(--border) solid black;
+  transition: height .5s ease-out;
+}
+
+footer > .menu > * {
+  margin: var(--space);
+}
+
+html:not([dir="rtl"]) footer > .menu {
+  border-right: var(--border) solid black;
+  border-top-right-radius: 8px;
+}
+
+html[dir="rtl"] footer > .menu {
+  border-left: var(--border) solid black;
+}
+
+footer > .menu.visible {
+  height: 60vh;
+}
