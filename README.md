@@ -12,3 +12,8 @@
 Images will drop the `.preview` part of the _src_ and will fade in the non `.preview` version of the same image once the document shows the preview, and after the non-preview version is loaded.
 
 Previews can be manually generated or based on [µcompress](https://github.com/WebReflection/ucompress#readme) or [µcdn](https://github.com/WebReflection/ucdn#readme) previews.
+
+```sh
+# example: will create test.preview.jpg
+npx ucompress --preview --source test.jpg
+```
