@@ -1,6 +1,6 @@
 {
   "name": "with-preview",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An <img> built-in extend that loads its non-preview counterpart once visible",
   "main": "./cjs/index.js",
   "scripts": {
