@@ -265,7 +265,7 @@
         }
       };
 
-      ustyler(className + '{position:relative;display:inline-block;padding:0;}' + className + '>img{position: absolute;top:0;left:0;margin:0;}' + className + '>img:last-child{opacity:0;transition:opacity 1s ease-in;will-change: opacity;}');
+      ustyler(className + '{position:relative;display:inline-block;padding:0;}' + className + '>img{position:absolute;top:0;left:0;margin:0;}' + className + '>img:last-child{opacity:0;transition:opacity 1s ease-in;will-change:opacity;}');
     }
 
     customElements.define(className, /*#__PURE__*/function (_HTMLImageElement) {
